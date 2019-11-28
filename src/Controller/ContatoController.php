@@ -14,9 +14,17 @@ use Cake\Network\Exception\MethodNotAllowedException;
  */
 class ContatoController extends AppController
 {
+    public $paginate = [
+        'limit' => 5,
+        'order' => [
+            'Contato.id' => 'asc'
+        ]
+    ];
+
     public function initialize()
     {
         parent::initialize();
+        $this->loadComponent('Paginator');
         $this->loadComponent('RequestHandler');
     }
 
